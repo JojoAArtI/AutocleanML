@@ -1,13 +1,13 @@
 """Tests for the guide system."""
 
-from autocleanml import guide
+from mlguide import guide
 
 
 def test_guide_overview(capsys):
     """guide() prints the overview without errors."""
     guide()
     out = capsys.readouterr().out
-    assert "autocleanml" in out
+    assert "mlguide" in out
     assert "Welcome" in out
 
 

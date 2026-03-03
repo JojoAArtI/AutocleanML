@@ -1,7 +1,7 @@
 """
-autocleanml._guide
-~~~~~~~~~~~~~~~~~~
-The built-in interactive help system — what makes autocleanml different.
+mlguide._guide
+~~~~~~~~~~~~~~
+The built-in interactive help system — what makes mlguide different.
 """
 
 __version__ = "1.0.0"
@@ -22,18 +22,18 @@ def _register(key, text):
 # ── Overview (called with no argument) ──
 _OVERVIEW = f"""\
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  autocleanml — The ML toolkit that teaches you.
+  mlguide — The ML toolkit that teaches you.
   v{__version__} | by {__author__}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 👋 Welcome! Here's how to use this package.
 
 OPTION 1 — Full autopilot (recommended for beginners):
-  from autocleanml import run_pipeline
+  from mlguide import run_pipeline
   result = run_pipeline("data.csv", target="price")
 
 OPTION 2 — Use individual steps:
-  from autocleanml import load_data, clean, split, encode, scale, train, evaluate
+  from mlguide import load_data, clean, split, encode, scale, train, evaluate
 
   df         = load_data("data.csv")
   df         = clean(df, target="price")
@@ -46,7 +46,7 @@ OPTION 2 — Use individual steps:
   metrics    = evaluate(model, X_te, y_te)
 
 OPTION 3 — Compare multiple models:
-  from autocleanml import compare_models
+  from mlguide import compare_models
   leaderboard = compare_models(X_tr, y_tr)
 
 📚 To learn about a specific step:
@@ -92,7 +92,7 @@ _register("ml_basics", """\
     │   Scale    │    │ model  │    │  results │
     └────────────┘    └────────┘    └──────────┘
 
-  autocleanml handles every step of this workflow,
+  mlguide handles every step of this workflow,
   either automatically or one step at a time.
 
   → guide("workflow") for the full step-by-step diagram
@@ -110,7 +110,7 @@ _register("load", """\
   or accepts a DataFrame you already have.
 
   HOW TO USE IT:
-    from autocleanml import load_data
+    from mlguide import load_data
 
     df = load_data("data.csv")
     df = load_data("data.csv", target="price")  # validates target exists
@@ -123,7 +123,7 @@ _register("load", """\
 
   SAMPLE DATASETS:
     Don't have a CSV? Use a bundled sample:
-      from autocleanml import sample_data
+      from mlguide import sample_data
       df = sample_data("regression")       # housing data, target="price"
       df = sample_data("classification")   # labels dataset, target="label"
       df = sample_data("titanic")          # survival, target="Survived"
@@ -150,7 +150,7 @@ _register("clean", """\
      median; categorical columns with the most frequent value.
 
   HOW TO USE IT:
-    from autocleanml import clean
+    from mlguide import clean
     df = clean(df, target="price")
 
   TARGET PROTECTION:
@@ -187,11 +187,11 @@ _register("split", """\
     It happens when information from your test set "leaks"
     into your training process — for example, if you scale
     your features before splitting.
-    autocleanml prevents this automatically by always
+    mlguide prevents this automatically by always
     splitting BEFORE encoding and scaling.
 
   HOW TO USE IT:
-    from autocleanml import split
+    from mlguide import split
     X_train, X_test, y_train, y_test = split(df, target="price")
     X_train, X_test, y_train, y_test = split(df, target="price", test_size=0.15)
 
@@ -283,7 +283,7 @@ _register("train", """\
     predictions on data it has never seen.
 
   HOW TO CHOOSE A MODEL:
-    Not sure? Use model="auto" and let autocleanml decide.
+    Not sure? Use model="auto" and let mlguide decide.
     Want to compare all options? Use compare_models().
 
   REGRESSION (predicting a number):
@@ -405,7 +405,7 @@ _register("predict", """\
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   USING A LIVE MODEL:
-    from autocleanml import predict
+    from mlguide import predict
     preds = predict(model, X_test)
 
   USING A SAVED MODEL:
@@ -430,7 +430,7 @@ _register("save", """\
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   SAVING:
-    from autocleanml import save_model
+    from mlguide import save_model
     save_model(model, "my_model.pkl",
                encoder=enc, scaler=sc,
                metadata={"target": "price"})
@@ -440,7 +440,7 @@ _register("save", """\
     needing to remember how you preprocessed the data.
 
   LOADING:
-    from autocleanml import load_model
+    from mlguide import load_model
     bundle = load_model("my_model.pkl")
     bundle["model"]     # the fitted model
     bundle["encoder"]   # the fitted encoder
@@ -526,7 +526,7 @@ _register("leakage", """\
     and standard deviation of the test set too. The test
     set is supposed to be completely unknown to the model.
 
-  HOW autocleanml PROTECTS YOU:
+  HOW mlguide PROTECTS YOU:
     • split() is called BEFORE encode() and scale().
     • encode() and scale() have a fit/reuse pattern that
       makes the correct order natural.
@@ -543,37 +543,37 @@ _register("text", """\
   📖 Guide: Text Extraction
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Tired of writing regex? autocleanml has you covered.
+  Tired of writing regex? mlguide has you covered.
   Extract emails, phones, URLs, numbers, and dates from
   any text — no regex knowledge needed.
 
   EXTRACT EMAILS:
-    from autocleanml import extract_emails
+    from mlguide import extract_emails
     extract_emails("Contact hello@example.com")
     # ['hello@example.com']
 
   EXTRACT PHONE NUMBERS:
-    from autocleanml import extract_phones
+    from mlguide import extract_phones
     extract_phones("Call +1 555-123-4567")
     # ['+1 555-123-4567']
 
   EXTRACT URLS:
-    from autocleanml import extract_urls
+    from mlguide import extract_urls
     extract_urls("Visit https://example.com")
     # ['https://example.com']
 
   EXTRACT NUMBERS:
-    from autocleanml import extract_numbers
+    from mlguide import extract_numbers
     extract_numbers("Price is $19.99, qty 42")
     # ['19.99', '42']
 
   EXTRACT DATES:
-    from autocleanml import extract_dates
+    from mlguide import extract_dates
     extract_dates("Born 15/03/1999")
     # ['15/03/1999']
 
   EXTRACT EVERYTHING AT ONCE:
-    from autocleanml import extract_all
+    from mlguide import extract_all
     result = extract_all(paragraph)
     result["emails"]   # all emails
     result["phones"]   # all phone numbers
@@ -604,42 +604,42 @@ _register("nlp", """\
     6. Convert to numbers (vectorise)
 
   TOKENISE:
-    from autocleanml import tokenize_text
+    from mlguide import tokenize_text
     tokenize_text("Hello World!")
     # ['hello', 'world']
 
   REMOVE STOPWORDS:
-    from autocleanml import remove_stopwords
+    from mlguide import remove_stopwords
     remove_stopwords(["the", "cat", "is", "on", "the", "mat"])
     # ['cat', 'mat']
 
   STEM (reduce to root form):
-    from autocleanml import stem
+    from mlguide import stem
     stem(["running", "jumps", "easily"])
     # ['run', 'jump', 'easili']
 
   LEMMATISE (smarter root form):
-    from autocleanml import lemmatize
+    from mlguide import lemmatize
     lemmatize(["running", "children", "went"])
     # ['run', 'child', 'go']
 
   FULL PIPELINE IN ONE CALL:
-    from autocleanml import clean_text
+    from mlguide import clean_text
     clean_text("The cats were running quickly!")
     # 'cat run quick'
 
   VECTORISE (convert text to numbers for ML):
-    from autocleanml import bag_of_words, tfidf
+    from mlguide import bag_of_words, tfidf
     bow_df, vec = bag_of_words(["I love ML", "ML is great"])
     tfidf_df, vec = tfidf(["I love ML", "ML is great"])
 
   N-GRAMS:
-    from autocleanml import ngrams
+    from mlguide import ngrams
     ngrams(["I", "love", "machine", "learning"], n=2)
     # [('I', 'love'), ('love', 'machine'), ...]
 
   WORD FREQUENCIES:
-    from autocleanml import word_freq
+    from mlguide import word_freq
     word_freq(["the", "cat", "the", "dog"])
 
   ⚠️  No NLTK or spaCy required — everything is built-in!
@@ -651,7 +651,7 @@ _register("nlp", """\
 # ── Cheatsheet ──
 _register("cheatsheet", """\
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  📖 autocleanml Cheatsheet
+  📖 mlguide Cheatsheet
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   LOADING:
@@ -710,7 +710,7 @@ _register("cheatsheet", """\
 # ───────────────────────────────────────────────────────────────
 
 def guide(topic=None):
-    """Interactive help system for autocleanml.
+    """Interactive help system for mlguide.
 
     Parameters
     ----------

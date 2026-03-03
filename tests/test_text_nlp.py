@@ -3,7 +3,7 @@
 import pytest
 import pandas as pd
 
-from autocleanml import (
+from mlguide import (
     extract_emails, extract_phones, extract_urls,
     extract_numbers, extract_dates, extract_all,
     tokenize_text, remove_punctuation, remove_stopwords,

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from autocleanml import (
+from mlguide import (
     load_data, clean, split, encode, scale, train, evaluate,
     compare_models, predict, save_model, load_model, run_pipeline,
     sample_data, detect_task,

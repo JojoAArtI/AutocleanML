@@ -1,4 +1,4 @@
-"""Generate sample CSV datasets for autocleanml.
+"""Generate sample CSV datasets for mlguide.
 
 Run this script once to create the bundled sample data files.
 """
@@ -7,7 +7,7 @@ import pandas as pd
 import os
 
 np.random.seed(42)
-data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "autocleanml", "data")
+data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "mlguide", "data")
 os.makedirs(data_dir, exist_ok=True)
 
 # ── 1. Regression dataset (housing-style) ──

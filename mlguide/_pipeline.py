@@ -1,5 +1,5 @@
 """
-autocleanml._pipeline
+mlguide._pipeline
 ~~~~~~~~~~~~~~~~~~~~~
 run_pipeline() — the full autopilot orchestrator.
 """
@@ -36,7 +36,7 @@ def run_pipeline(
     cv_folds=5,
     # Output
     save_model=False,
-    output_path="autocleanml_model.pkl",
+    output_path="mlguide_model.pkl",
     verbose=True,
 ):
     """Run the full ML pipeline from data to trained model.
@@ -81,7 +81,7 @@ def run_pipeline(
     """
     if verbose:
         print("\n" + "━" * 56)
-        print("  autocleanml — Full Pipeline")
+        print("  mlguide — Full Pipeline")
         print("━" * 56)
 
     # 1. Load

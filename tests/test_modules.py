@@ -1,4 +1,4 @@
-"""Unit tests for individual autocleanml modules."""
+"""Unit tests for individual mlguide modules."""
 
 import os
 import tempfile
@@ -6,12 +6,12 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from autocleanml import (
+from mlguide import (
     load_data, sample_data, clean, split, encode, scale,
     detect_task, train, compare_models, evaluate, predict,
     save_model, load_model, get_feature_importance,
 )
-from autocleanml._exceptions import (
+from mlguide._exceptions import (
     DataLoadError, InvalidTargetError, InsufficientDataError,
     ModelNotSupportedError, NotSupportedError,
 )

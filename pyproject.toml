@@ -3,7 +3,7 @@ requires      = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name            = "autocleanml"
+name            = "mlguide"
 version         = "1.0.0"
 description     = "Modular ML toolkit with a built-in guide system for students."
 readme          = "README.md"
@@ -34,12 +34,12 @@ dev = ["pytest>=7.0", "pytest-cov", "black", "flake8"]
 viz = ["matplotlib>=3.4"]
 
 [project.urls]
-Homepage      = "https://github.com/joelinian/autocleanml"
-Documentation = "https://github.com/joelinian/autocleanml#readme"
-"Bug Tracker" = "https://github.com/joelinian/autocleanml/issues"
+Homepage      = "https://github.com/JojoAArtI/AutocleanML"
+Documentation = "https://github.com/JojoAArtI/AutocleanML#readme"
+"Bug Tracker" = "https://github.com/JojoAArtI/AutocleanML/issues"
 
 [tool.setuptools.packages.find]
-include = ["autocleanml*"]
+include = ["mlguide*"]
 
 [tool.setuptools.package-data]
-autocleanml = ["data/*.csv"]
+mlguide = ["data/*.csv"]
