@@ -1,0 +1,45 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "autocleanml"
+version         = "1.0.0"
+description     = "Modular ML toolkit with a built-in guide system for students."
+readme          = "README.md"
+license         = { text = "MIT" }
+authors         = [{ name = "Joel Inian Francis" }]
+keywords        = [
+    "machine learning", "automl", "data cleaning",
+    "preprocessing", "sklearn", "education", "students"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.3",
+    "numpy>=1.21",
+    "scikit-learn>=1.0",
+    "joblib>=1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov", "black", "flake8"]
+viz = ["matplotlib>=3.4"]
+
+[project.urls]
+Homepage      = "https://github.com/joelinian/autocleanml"
+Documentation = "https://github.com/joelinian/autocleanml#readme"
+"Bug Tracker" = "https://github.com/joelinian/autocleanml/issues"
+
+[tool.setuptools.packages.find]
+include = ["autocleanml*"]
+
+[tool.setuptools.package-data]
+autocleanml = ["data/*.csv"]
