@@ -1,4 +1,4 @@
-# mlguide 🚀
+# mlguide 
 
 > **The ML toolkit that teaches you while it works.**
 
