@@ -1,8 +1,3 @@
-"""
-autocleanml._encoder
-~~~~~~~~~~~~~~~~~~~~
-encode() — One-Hot Encoding with fit/reuse pattern and leakage guard.
-"""
 
 import warnings
 import pandas as pd
