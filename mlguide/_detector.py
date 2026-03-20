@@ -1,8 +1,3 @@
-"""
-autocleanml._detector
-~~~~~~~~~~~~~~~~~~~~~
-detect_task() — infer regression vs classification from the target.
-"""
 
 import numpy as np
 import pandas as pd
