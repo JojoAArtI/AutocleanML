@@ -1,8 +1,3 @@
-"""
-autocleanml._cleaner
-~~~~~~~~~~~~~~~~~~~~
-clean() — data cleaning with transparent logging.
-"""
 
 import pandas as pd
 
